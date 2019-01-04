@@ -52,7 +52,8 @@ db.select('*').from('users').then(data => {
 
 
 app.get('/', (req, res) => {
-	res.send(database.users);
+	res.send('it is working');
+	// res.send(database.users);
 })
 
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)});//Dependency injection - We are injecting all the dependencies that handle Signin needs
