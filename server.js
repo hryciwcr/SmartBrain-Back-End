@@ -78,7 +78,12 @@ app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)});
 // });
 
 
+// Port for running on local machine
+// app.listen(3010, () => {
+// 	console.log("app is running on port 3010");
+// });
 
-app.listen(3010, () => {
-	console.log("app is running on port 3010");
-});
+// Port for deploying on Heroku
+app.listen(process.env.PORT || 3000, () => {
+	console.log(`app is running on port 3000 ${process.env.PORT}`);
+})
