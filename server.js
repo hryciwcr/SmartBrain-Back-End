@@ -17,10 +17,8 @@ app.use(bodyParser.json());
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: 'postgresql-lively-53080', //change host to '127.0.0.1' if you ant to run on local machine so that it points to the local database
-		user: 'postgres',
-		password: 'Miltown1!',
-		database: 'smartbraincomplete'
+		host: process.env.DATABASE_URL, //change host to '127.0.0.1' if you ant to run on local machine so that it points to the local database
+		ssl: true
 	}
 });
 
