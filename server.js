@@ -17,8 +17,16 @@ app.use(bodyParser.json());
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: process.env.DATABASE_URL, //change host to '127.0.0.1' if you ant to run on local machine so that it points to the local database
+		// HEROKU DEPLOYMENT
+		connectionString: process.env.DATABASE_URL,
 		ssl: true
+		// LOCAL HOST
+		// To run on Local Machine, comment out the two lines of code above and uncomment the two lines below
+		// host: '127.0.0.1', 
+		// Needed to tun on localhost
+		// user: 'postgres',
+		// password: '', // NEED TO ADD PASSWORD. REMOVED FOR SECURITY
+		// database: 'smartbraincomplete'
 	}
 });
 
